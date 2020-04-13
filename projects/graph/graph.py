@@ -167,15 +167,11 @@ class Graph:
                     self.dfs_recursive(neighbor, destination_vertex)
                 
                 if path[-1] == destination_vertex:
-                    break
-            
-        if path[-1] != destination_vertex:
-            while path[-1] != starting_vertex:
-                path.pop()
-            
-            path.pop()
+                    return path
 
-        return path
+        while path.pop() != starting_vertex:
+            continue
+
 
 
 if __name__ == '__main__':
