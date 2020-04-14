@@ -26,5 +26,9 @@ class Test(unittest.TestCase):
         self.assertEqual(earliest_ancestor(test_ancestors, 10), -1)
         self.assertEqual(earliest_ancestor(test_ancestors, 11), -1)
 
+    def test_earliest_ancestor_edges(self):
+        test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (12, 1), (10, 4)]
+        self.assertEqual(earliest_ancestor(test_ancestors, 6), 10)
+
 if __name__ == '__main__':
     unittest.main()
