@@ -8,6 +8,11 @@ class Graph:
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
     def __init__(self):
         self.vertices = {}
+    
+    def has_vertex(self, vertex_id):
+        if self.vertices.get(vertex_id):
+            return True
+
 
     def add_vertex(self, vertex_id):
         """
@@ -53,8 +58,6 @@ class Graph:
                     new_path = [*path, next_vert]
                     queue.enqueue(new_path)
 
-
-
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
@@ -77,13 +80,15 @@ class Graph:
                     if neighbor not in visited:
                         stack.push(neighbor)
 
-    def dft_recursive(self, starting_vertex, visited=set()):
+    def dft_recursive(self, starting_vertex, visited=None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
 
         This should be done using recursion.
         """
+        if visited is None:
+            visited = set()
 
         if starting_vertex in visited:
             return
@@ -171,8 +176,6 @@ class Graph:
 
         while path.pop() != starting_vertex:
             continue
-
-
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
