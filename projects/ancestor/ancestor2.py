@@ -36,7 +36,7 @@ def earliest_ancestor(ancestors, starting_node):
         parents, child, traversed_distance = queue.dequeue()
 
         if not len(parents):
-            earliest_ancestors.append((traversed_distance + 1, child))
+            earliest_ancestors.append((traversed_distance, child))
 
         for parent in parents: 
             queue.enqueue((graph.get_neighbors(parent), parent, traversed_distance + 1))
